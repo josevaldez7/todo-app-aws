@@ -7,6 +7,8 @@ import jakarta.persistence.Id;
 
 @Entity
 public class Task {
+
+    public Task(){}
     
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -15,9 +17,12 @@ public class Task {
     private String title;
     private boolean completed;
 
-    public Task(String title){
-        this.title = title;
-        this.completed = false;
+    public Long getId() {
+        return id;
+    }
+
+    public void setId(Long id){
+        this.id = id;
     }
 
     public void setTitle(String title){
@@ -25,14 +30,14 @@ public class Task {
     }
 
     public String getTitle(){
-        return this.title;
+        return title;
     }
 
-    public void setCompleted(){
-        this.completed = true;
+    public void setCompleted(boolean completed){
+        this.completed = completed;
     }
 
-    public boolean getCompleted(){
-        return this.completed;
+    public boolean isCompleted(){
+        return completed;
     }
 }
